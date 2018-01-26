@@ -1,0 +1,4 @@
+---
+# CentOS
+- include: locale_{{ ansible_os_family }}.ymL
+
