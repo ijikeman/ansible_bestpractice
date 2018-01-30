@@ -1,0 +1,27 @@
+---
+- name: Check elasticsearch gpg key.
+  shell: apt-key fingerprint 60D31954 | grep 60D31954
+  register: elasticsearch_gpg
+  ignore_errors: True
+  changed_when: False
+
+- name: Add Docker’s official GPG key
+  shell: wget -qO - https://packages.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -
+  when: elasticsearch_gpg | failed
+
+- copy:
+    src: elasticsearch.v{{ elastic_version }}.list
+    dest: /etc/apt/sources.list.d/elasticsearch.list
+    owner: 0
+    group: 0
+    mode: 0644
+
+- name: Run the equivalent of "apt-get update" as a separate step
+  apt:
+    update_cache: yes
+
+# install java
+- apt: name={{ java_pkg }} state=latest
+
+#- name: Install Elasticsearch
+- apt: name=elasticsearch state=latest

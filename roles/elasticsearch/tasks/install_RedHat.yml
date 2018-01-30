@@ -1,0 +1,14 @@
+---
+#- Set Elasticsearch Repository
+- copy:
+    src: elasticsearch.v{{ elastic_version }}.repo
+    dest: /etc/yum.repos.d/elasticsearch.repo
+    owner: 0
+    group: 0
+    mode: 0644
+ 
+#- name: Install Elasticsearch
+- yum: name=elasticsearch state=latest
+  
+# install java
+- yum: name={{ java_pkg }} state=latest
