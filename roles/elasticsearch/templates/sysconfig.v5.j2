@@ -51,7 +51,6 @@ ES_STARTUP_SLEEP_TIME=5
 # When using Systemd, this setting is ignored and the LimitNOFILE defined in
 # /usr/lib/systemd/system/elasticsearch.service takes precedence
 #MAX_OPEN_FILES=65536
-MAX_OPEN_FILES=655360
 
 # The maximum number of bytes of memory that may be locked into RAM
 # Set to "unlimited" if you use the 'bootstrap.memory_lock: true' option
@@ -64,4 +63,3 @@ MAX_OPEN_FILES=655360
 # When using Systemd, this setting is ignored and the 'vm.max_map_count'
 # property is set at boot time in /usr/lib/sysctl.d/elasticsearch.conf
 #MAX_MAP_COUNT=262144
-ES_HEAP_SIZE=2G

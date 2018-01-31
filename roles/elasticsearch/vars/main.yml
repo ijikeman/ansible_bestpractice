@@ -1,11 +1,10 @@
 ---
-elastic_version: 5
-java_pkg: openjdk-8-jdk
-PATH_sysconfig: /etc/default/
+daemon_name: elasticsearch
+PATH_conf: /etc/elasticsearch/
 PARAMS:
   - {
     cluster_name: elasticsearch-cluster,
     data_path: /data/elasticsearch,
-    Xms: 1g,
-    Xmx: 1g
+    Xms: 256m,
+    Xmx: 2g
   }
