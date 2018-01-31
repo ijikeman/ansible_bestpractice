@@ -1,0 +1,5 @@
+---
+daemon_name: httpd
+path_conf: /etc/httpd/
+path_confd: "{{path_conf}}conf.d/"
+file_httpd_conf: "{{path_conf}}conf/httpd.conf"

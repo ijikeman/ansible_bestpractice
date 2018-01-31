@@ -1,6 +1,5 @@
 ---
 - hosts: webserver
   roles:
-    - common
     - apache22
-  connection: docker
+

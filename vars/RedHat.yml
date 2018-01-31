@@ -1,0 +1,3 @@
+---
+etc_path: /etc/
+sysconf_path: "{{ etc_path }}sysconfig/"

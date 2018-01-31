@@ -2,3 +2,9 @@
 - hosts: elasticsearch
   roles:
     - elasticsearch
+  vars:
+    cluster_name: elastic_cluster
+    data_path: /data/elasticsearch
+    mkdirs: 
+      - { path: '/data/', owner: 0, group: 0, mode: '0755'}
+      - { path: '/data/elasticsearch', owner: elasticsearch, group: elasticsearch, mode: '0755'}

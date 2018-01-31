@@ -1,0 +1,7 @@
+---
+- hosts: webserver.docker
+  roles:
+    - common
+    - apache22
+    - fluentd
+  connection: docker

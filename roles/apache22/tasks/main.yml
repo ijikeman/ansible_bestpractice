@@ -1,2 +1,3 @@
 ---
-- include: _{{ ansible_os_family }}.ymL
+- include_vars: "{{ ansible_os_family }}.yml"
+- include: "{{ ansible_os_family }}.yml"

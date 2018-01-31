@@ -1,0 +1,3 @@
+---
+- command: echo "test"
+  notify: repository_clean

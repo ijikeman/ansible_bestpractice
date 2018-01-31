@@ -1,7 +1,19 @@
 ---
+- name: initial make directory
+  file: path={{ item.path }} state=directory owner={{ item.owner }} group={{ item.group }} mode={{ item.mode }}
+  with_items: "{{ mkdirs }}"
+
 - template:
     src: elasticsearch.yml.v{{ elastic_version }}.j2
     dest: /etc/elasticsearch/elasticsearch.yml
+    owner: 0
+    group: 0
+    mode: 0644
+  notify: restart elasticsearch
+
+- template:
+    src: sysconfig.v{{ elastic_version}}.j2
+    dest: /etc/defaults/elasticsearch
     owner: 0
     group: 0
     mode: 0644
